@@ -32,6 +32,7 @@ body {
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 ::selection { background: var(--tinte); color: var(--papier); }
+:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 .u { text-transform: uppercase; }
 .versteckt { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
@@ -93,7 +94,10 @@ a.pfeil:hover { transform: translate(6px, -6px); }
 @keyframes hoch { to { opacity: 1; transform: none; } }
 .kicker { font-weight: 600; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; margin-top: clamp(18px, 2.4vw, 32px); }
 .intro { font-size: clamp(15px, 1.25vw, 19px); line-height: 1.6; max-width: 34em; margin: 10px 0 0; }
-.intro + .intro { margin-top: 14px; }
+.kontaktzeile { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: clamp(22px, 2.6vw, 36px); padding-top: 16px; border-top: var(--linie) solid var(--tinte); font-weight: 600; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+.kontaktzeile .l { font-family: var(--ext); font-weight: 700; letter-spacing: .04em; margin-right: 6px; }
+.kontaktzeile a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.kontaktzeile .trenner { width: 9px; height: 9px; background: var(--tinte); clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%); }
 
 /* ---------- Laufband ---------- */
 .band { background: var(--tinte); color: var(--papier); overflow: hidden; white-space: nowrap; margin-top: clamp(28px, 3.5vw, 52px); border-top: var(--linie) solid var(--tinte); }
@@ -103,6 +107,8 @@ a.pfeil:hover { transform: translate(6px, -6px); }
 .band .el { display: inline-flex; align-items: center; gap: 22px; padding: 0 22px; font-weight: 600; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; }
 .band .el .label { font-family: var(--ext); font-weight: 700; letter-spacing: .04em; }
 .band .stern { width: 14px; height: 14px; flex: none; }
+.band .pf-inline { width: 14px; height: 14px; display: inline-block; vertical-align: -2px; }
+.band .pf-inline path { fill: none; stroke: currentColor; stroke-width: 12; }
 .band a:hover { text-decoration: underline; text-underline-offset: 4px; }
 
 /* ---------- Abschnittsköpfe ---------- */
@@ -133,6 +139,8 @@ a.pfeil:hover { transform: translate(6px, -6px); }
 .warum .stern { width: 44px; height: 44px; }
 .rahmenfoto { position: relative; padding: 10px; border: var(--linie) solid currentColor; }
 .rahmenfoto img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 10%; filter: grayscale(1) contrast(1.04); }
+.rahmenfoto img.nah { aspect-ratio: 1 / 1.08; object-position: 50% 8%; transform: scale(1.14); transform-origin: 50% 16%; }
+.rahmenfoto { overflow: hidden; }
 .warum .rechts { display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; gap: 48px; height: 100%; }
 .warum .rechts .kreis { width: clamp(100px, 11vw, 170px); height: clamp(100px, 11vw, 170px); }
 .warum .rechts .pfeil { width: clamp(90px, 10vw, 160px); height: clamp(90px, 10vw, 160px); }
@@ -143,6 +151,7 @@ a.pfeil:hover { transform: translate(6px, -6px); }
 .warum .text p.stark { font-weight: 600; }
 
 /* ---------- Profil ---------- */
+.profil .vorspann { font-family: var(--cond); font-weight: 700; font-size: clamp(22px, 2.6vw, 40px); line-height: 1.12; text-transform: uppercase; letter-spacing: .005em; max-width: 26em; margin: 0 0 clamp(36px, 4vw, 64px); }
 .profil .zwei { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 80px); }
 .profil h2 { font-family: var(--ext); font-weight: 400; font-size: clamp(20px, 1.9vw, 30px); line-height: 1.05; text-transform: uppercase; margin: 0 0 18px; }
 .profil .gruppe + .gruppe { margin-top: clamp(32px, 3.6vw, 56px); }
