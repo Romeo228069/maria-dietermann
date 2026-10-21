@@ -90,7 +90,7 @@ a.pfeil:hover { transform: translate(6px, -6px); }
   font-family: var(--cond); font-weight: 900; line-height: .86; letter-spacing: -0.005em; margin: clamp(20px, 3vw, 44px) 0 0;
   font-size: clamp(76px, 8.9vw, 184px); display: flex;
 }
-.hello span { display: inline-block; opacity: 0; transform: translateY(.35em) skewY(2deg); animation: hoch .9s var(--weich) forwards; }
+.js .hello span { display: inline-block; opacity: 0; transform: translateY(.35em) skewY(2deg); animation: hoch .9s var(--weich) forwards; }
 @keyframes hoch { to { opacity: 1; transform: none; } }
 .kicker { font-weight: 600; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; margin-top: clamp(18px, 2.4vw, 32px); }
 .intro { font-size: clamp(15px, 1.25vw, 19px); line-height: 1.6; max-width: 34em; margin: 10px 0 0; }
@@ -139,7 +139,6 @@ a.pfeil:hover { transform: translate(6px, -6px); }
 .warum .stern { width: 44px; height: 44px; }
 .rahmenfoto { position: relative; padding: 10px; border: var(--linie) solid currentColor; }
 .rahmenfoto img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 10%; filter: grayscale(1) contrast(1.04); }
-.rahmenfoto img.nah { aspect-ratio: 1 / 1.08; object-position: 50% 8%; transform: scale(1.14); transform-origin: 50% 16%; }
 .rahmenfoto { overflow: hidden; }
 .warum .rechts { display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; gap: 48px; height: 100%; }
 .warum .rechts .kreis { width: clamp(100px, 11vw, 170px); height: clamp(100px, 11vw, 170px); }
@@ -151,9 +150,12 @@ a.pfeil:hover { transform: translate(6px, -6px); }
 .warum .text p.stark { font-weight: 600; }
 
 /* ---------- Profil ---------- */
-.profil .vorspann { font-family: var(--cond); font-weight: 700; font-size: clamp(22px, 2.6vw, 40px); line-height: 1.12; text-transform: uppercase; letter-spacing: .005em; max-width: 26em; margin: 0 0 clamp(36px, 4vw, 64px); }
+.profil .oben { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 80px); align-items: center; margin: 0 0 clamp(40px, 4.5vw, 72px); }
+.profil .vorspann { font-family: var(--cond); font-weight: 700; font-size: clamp(22px, 2.6vw, 40px); line-height: 1.12; text-transform: uppercase; letter-spacing: .005em; max-width: 24em; margin: 0; }
+.profil .profilfoto { margin: 0; padding: 10px; border: var(--linie) solid var(--tinte); max-width: 320px; justify-self: end; }
+.profil .profilfoto img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 12%; filter: grayscale(1) contrast(1.04); }
 .profil .zwei { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 80px); }
-.profil h2 { font-family: var(--ext); font-weight: 400; font-size: clamp(20px, 1.9vw, 30px); line-height: 1.05; text-transform: uppercase; margin: 0 0 18px; }
+.profil .gruppe h2 { font-family: var(--ext); font-weight: 400; font-size: clamp(20px, 1.9vw, 30px); line-height: 1.05; text-transform: uppercase; margin: 0 0 18px; }
 .profil .gruppe + .gruppe { margin-top: clamp(32px, 3.6vw, 56px); }
 .profil .ent { margin-bottom: 20px; }
 .profil .ent-t { font-family: var(--cond); font-weight: 700; font-size: 15px; letter-spacing: .03em; text-transform: uppercase; line-height: 1.2; }
@@ -171,8 +173,9 @@ a.pfeil:hover { transform: translate(6px, -6px); }
 .arbeitsweise .kasten { background: var(--tinte); color: var(--papier); padding: clamp(28px, 3.5vw, 56px) var(--rand); display: flex; flex-direction: column; gap: clamp(28px, 4vw, 64px); }
 .arbeitsweise .label { font-family: var(--ext); font-weight: 700; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; }
 .schritte { display: flex; flex-wrap: wrap; align-items: center; gap: clamp(12px, 2vw, 36px); font-family: var(--cond); font-weight: 900; font-size: clamp(30px, 3.6vw, 92px); line-height: 1; letter-spacing: .005em; }
-.schritte .s { opacity: 0; transform: translateX(-12px); transition: all .7s var(--weich); }
-.schritte .pf { width: clamp(28px, 3vw, 56px); height: clamp(28px, 3vw, 56px); opacity: 0; transition: all .7s var(--weich) .15s; }
+.js .schritte .s { opacity: 0; transform: translateX(-12px); transition: all .7s var(--weich); }
+.schritte .pf { width: clamp(28px, 3vw, 56px); height: clamp(28px, 3vw, 56px); }
+.js .schritte .pf { opacity: 0; transition: all .7s var(--weich) .15s; }
 .schritte .pf svg path { fill: none; stroke: currentColor; stroke-width: 11; }
 .ist-da .schritte .s, .ist-da .schritte .pf { opacity: 1; transform: none; }
 .ist-da .schritte .s:nth-child(3) { transition-delay: .25s; } .ist-da .schritte .s:nth-child(5) { transition-delay: .5s; }
@@ -197,8 +200,8 @@ a.pfeil:hover { transform: translate(6px, -6px); }
 .impressum b { font-weight: 600; }
 
 /* ---------- Einblenden beim Scrollen ---------- */
-.reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s var(--weich), transform .9s var(--weich); }
-.reveal.ist-da { opacity: 1; transform: none; }
+.js .reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s var(--weich), transform .9s var(--weich); }
+.js .reveal.ist-da { opacity: 1; transform: none; }
 .reveal[data-delay="1"] { transition-delay: .12s; } .reveal[data-delay="2"] { transition-delay: .24s; } .reveal[data-delay="3"] { transition-delay: .36s; }
 
 /* ---------- Mobil ---------- */
@@ -223,6 +226,8 @@ a.pfeil:hover { transform: translate(6px, -6px); }
   .warum .rechts { flex-direction: row; align-items: center; justify-content: space-between; height: auto; }
   .warum .text { columns: 1; }
   .profil .zwei { grid-template-columns: 1fr; }
+  .profil .oben { grid-template-columns: 1fr; }
+  .profil .profilfoto { justify-self: start; max-width: 100%; }
   .kontakt .wege { grid-template-columns: 1fr; gap: 0; }
   .arbeitsweise .unten { flex-direction: column; } .arbeitsweise .unten .r { text-align: left; }
 }

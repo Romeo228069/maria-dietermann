@@ -1,11 +1,17 @@
 /* Kleine Bewegungen: Einblenden beim Scrollen, aktive Navigation, dunkle Navigation über dunklen Abschnitten */
 (function () {
+  document.documentElement.classList.add('js');
   const reduziert = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   // Ganzseiten-Aufnahme (Headless Chrome mit sehr hohem Fenster): Leiste auf Bildschirmhöhe festnageln
-  if (location.search.includes('vollbild')) {
+  const vollbild = location.search.includes('vollbild');
+  if (vollbild) {
     document.documentElement.classList.add('vollbild');
     document.documentElement.style.setProperty('--vh', '900px');
   }
+  // Sicherheitsnetz: spätestens kurz nach dem Laden ist alles sichtbar, auch ohne Beobachter
+  const alleZeigen = () => document.querySelectorAll('.reveal, .hero, .arbeitsweise').forEach(el => el.classList.add('ist-da'));
+  if (vollbild) alleZeigen();
+  window.addEventListener('load', () => setTimeout(alleZeigen, 2500));
 
   // HELLO ! in einzelne Buchstaben zerlegen, damit sie nacheinander hochkommen
   document.querySelectorAll('.hello').forEach(el => {
